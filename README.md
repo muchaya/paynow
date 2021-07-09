@@ -44,7 +44,7 @@ result = Paynow::Payment.create(
 )
 
 if result.success?
-  #do so order stuff
+  #some so order stuff
   redirect_to paynow_redirect_url
 else
   puts result.status
@@ -65,21 +65,56 @@ result = Paynow::Payment.create(
                     
 if result.success?
  #do some order stuff
- #poll the status of the payment using the poll_url method
+ #poll the status of the payment using the poll_url method ie. result.poll_url
 end
 ```
-## Optional and Mandatory fields when setting up your payments ##
+You can use **pay_with_paynow** to redirect to Paynow as shown in the first example. You can also use **poll_url** to check for the status of both express and basic payments.
 
-###### All payments ######
-mandatory: amount, reference, method
-optional:  additionalinfo, authemail, tokenize
 
-###### Mobile money (Ecocash and OneMoney) ###### 
-mandatory: amount, reference, method, phone, authemail
+You can only specify four payment methods. The 'pay_with_paynow' option redirects to paynow. 
 
-###### Visa or Mastercard ######
-mandatory: cardnumber, cardname, cardcvv, cardexpiry, billingline1, billingcity, billingcountry, token, authemail
-optional: billingline2, billingprovince
+Method        | Value  
+----------------- | -----------------
+Ecocash | ecocash
+OneMoney | onemoney
+Paynow | pay_with_paynow
+Visa or Mastercard | vmc
 
+
+
+## List of mandatory and optional fields when setting up your payments ##
+
+#### Basic payments that redirect to Paynow ####
+Mandatory         | Optional  
+----------------- | -----------------
+amount | additionalinfo
+method | authemail
+reference | tokenize
+
+
+#### Ecocash and OneMoney #### 
+Mandatory         |
+----------------- | 
+authemail |
+amount | 
+method |
+phone |
+reference | 
+
+#### Visa and Mastercard #### 
+Mandatory         | Optional  
+----------------- | -----------------
+authemail | billingline2
+amount | billingprovince
+billingcity | tokenize
+billingcountry | 
+billingline1 |
+cardnumber | 
+cardname | 
+cardcvv | 
+cardexpiry |
+method |
+reference |
+token |
 
 
