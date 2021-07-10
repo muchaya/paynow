@@ -8,11 +8,6 @@ module Paynow
       def copy_config
         template 'config/initializers/paynow.rb'
       end
-
-      def testing
-        puts "Wowza, it is working"
-      end
-
     end
   end
 end
