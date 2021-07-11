@@ -1,5 +1,5 @@
 module Paynow
-  class UnknownAttributeError < StandardError
+  class UnknownAttributeValueError < StandardError
     def initialize(msg="No such attribute. Refer to docs for an applicable attribute")
       super
     end

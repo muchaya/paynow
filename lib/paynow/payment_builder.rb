@@ -93,7 +93,7 @@ module Paynow
 
     def payment_method(attrs)
       if attrs.has_key?(:method) && !PAYMENT_METHOD_TYPES.include?(attrs[:method])
-        raise Paynow::UnknownAttributeError, "Payment method should either be ecocash, onemoney, vmc or other"
+        raise Paynow::UnknownAttributeValueError, "Payment method should either be ecocash, onemoney, vmc or other"
       elsif !attrs.has_key?(:method)
         raise Paynow::MissingAttributeError, "Payment method is missing"
       else
