@@ -18,7 +18,6 @@ module Paynow
       return unless data
 
       hash_data = concatenate_hash_values_and_append_key(data)
-      puts(hash_data)
       
       _hash = Digest::SHA512.hexdigest(hash_data).upcase 
     end
