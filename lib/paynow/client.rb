@@ -13,7 +13,6 @@ module Paynow
     end
 
     def create_payment
-      puts(raw_payment)
       logger.info("[PAYNOW] STARTED POST #{uri}")
 
       response = Net::HTTP.post(uri, payment_data,headers)
