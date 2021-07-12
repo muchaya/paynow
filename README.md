@@ -78,7 +78,7 @@ result = Paynow::Payment.create(
   authemail: "bles@heyheyhey.com", 
   billingline1: "11 Wembley Street",
   billingline2: "Italia", # optional
-  billingcity: "Mutare"
+  billingcity: "Mutare",
   billingprovince: "Manicaland", #optional
   billingcountry: "Zimbabwe",
   cardnumber: "4242424242424242",
@@ -101,8 +101,10 @@ Visa or Mastercard | vmc
 ## Note ##
 For more in-depth documentation, head over to https://developers.paynow.co.zw/quickstart.html
 
-To genereate integration keys, head over to https://developers.paynow.co.zw/docs/integration_generation.html
+To generate integration keys, head over to https://developers.paynow.co.zw/docs/integration_generation.html
 
-There are a few features in the pipeline. They probably won't change how you interact with the Paynow API using this library.
+There are a few features in the pipeline. They probably won't change how you interact with the Paynow API using this library. 
+
+
 
  
