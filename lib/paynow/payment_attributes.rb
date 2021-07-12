@@ -4,13 +4,13 @@ module Paynow
       :amount,
       :reference,
       :method
-    ]
+    ].freeze
 
     OPTIONAL = [
       :additionalinfo,
       :authemail,
       :tokenize
-    ]
+    ].freeze
 
     CARD = [
       :cardnumber,
@@ -22,16 +22,16 @@ module Paynow
       :billingcountry,
       :token,
       :authemail
-    ]
+    ].freeze
 
     OPTIONAL_CARD = [
       :billingline2,
       :billingprovince
-    ]
+    ].freeze
 
     MOBILE = [
       :phone,
       :authemail
-    ]
+    ].freeze
   end
 end
