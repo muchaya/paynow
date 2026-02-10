@@ -18,9 +18,9 @@ module Paynow
                 :phone,
                 :poll_url,               
                 :reference,
-                :returnurl,
-                :resulturl,
-                :status,                
+                :return_url,
+                :result_url,
+                :status,              
                 :token,
                 :tokenize,
                 

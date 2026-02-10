@@ -7,7 +7,7 @@ module Paynow
     end
 
     def build(attrs)
-      payment = { id: id, returnurl: returnurl, resulturl: resulturl, status: "Message"}
+      payment = { id: id, returnurl: return_url, resulturl: result_url, status: "Message"}
 
       payment.merge!(
         required_info(attrs),
@@ -33,12 +33,12 @@ module Paynow
       SecureRandom.alphanumeric(32)
     end
 
-    def resulturl
-      Paynow.resulturl
+    def result_url
+      Paynow.result_url
     end
 
-    def returnurl
-      Paynow.returnurl
+    def return_url
+      Paynow.return_url
     end
 
     def required_info(attrs)

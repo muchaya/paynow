@@ -4,8 +4,8 @@ module Paynow
   class << self
     attr_accessor :integration_id,
                   :integration_key,
-                  :resulturl,
-                  :returnurl
+                  :result_url,
+                  :return_url
 
     def setup(&block)
       instance_eval(&block)

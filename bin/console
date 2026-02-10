@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'paynow'
+
+begin
+  require "dotenv/load"
+rescue LoadError
+  if ENV["PAYNOW_ID"].nil? || ENV["PAYNOW_KEY"].nil? || ENV["RESULT_URL"].nil? || ENV["RETURN_URL"].nil?
+    puts "💡PAYNOW_ID, PAYNOW_KEY, RESULT_URL OR  RETURN_URL missing."
+    puts "Ensure that all your secrets and urls are set correctly"
+  end
+end
+
+Paynow.integration_id  = ENV["PAYNOW_ID"]
+Paynow.integration_key = ENV["PAYNOW_KEY"]
+Paynow.return_url = ENV["RETURN_URL"]
+Paynow.result_url = ENV["RESULT_URL"]
+
+require 'irb'
+IRB.start(__FILE__)

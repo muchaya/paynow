@@ -1,1 +1,4 @@
-/lib/paynow/config_dev.rb
+.env
+.env
+.env.local
+.env.*.local
