@@ -1,0 +1,21 @@
+PATH
+  remote: .
+  specs:
+    paynow (0.1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    dotenv (3.2.0)
+
+PLATFORMS
+  arm64-darwin-22
+  ruby
+
+DEPENDENCIES
+  bundler
+  dotenv
+  paynow!
+
+BUNDLED WITH
+   2.7.2
