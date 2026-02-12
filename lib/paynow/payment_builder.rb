@@ -28,20 +28,21 @@ module Paynow
     end
 
     private
-      def id
-        Paynow.integration_id
-      end
+    
+    def id
+      Paynow.integration_id
+    end
 
-      def merchant_trace
-        SecureRandom.alphanumeric(16)
-      end
+    def merchant_trace
+      SecureRandom.alphanumeric(16)
+    end
 
-      def result_url
-        Paynow.result_url
-      end
+    def result_url
+      Paynow.result_url
+    end
 
-      def return_url
-        Paynow.return_url
-      end
+    def return_url
+      Paynow.return_url
+    end
   end
 end

@@ -42,4 +42,3 @@ module Paynow
     end
   end
 end
-

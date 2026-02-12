@@ -39,5 +39,3 @@ module Paynow
 
   end
 end
-
-
