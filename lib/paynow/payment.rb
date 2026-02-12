@@ -1,22 +1,23 @@
 module Paynow
   class Payment
     attr_reader :amount,
-                :additionalinfo,
-                :authemail,
+                :additional_info,
+                :auth_email,
                 :authorization_code,
-                :authorizationexpires,
+                :authorization_expires,
                 :id,
                 :method, 
-                :otpreference,
-                :remoteotpurl,
+                :otp_reference,
+                :remote_otp_url,
                 :phone,
+                :paynow_reference,
                 :poll_url,               
                 :reference,
                 :return_url,
                 :result_url,
                 :status,              
                 :token,
-                :tokenize,
+                :tokenize
                 
     def self.create(*args)
       Paynow::Config.client.create_payment(*args)

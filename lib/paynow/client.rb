@@ -27,11 +27,19 @@ module Paynow
 
       payment.new(
         raw_payment.merge(
-          poll_url: decoded_response[:pollurl],
-          paynow_redirect_url: decoded_response[:browserurl],
-          status: decoded_response[:status]
-          )
+          {
+            authorization_code: decoded_response[:authorizationcode],
+            authorization_expires:decoded_response[:authorizationexpires],
+            instructions: decoded_response[:instructions],
+            otp_reference: decoded_response[:otpreference],
+            remote_otp_url: decoded_response[:remoteotpurl],
+            poll_url: decoded_response[:pollurl],
+            paynow_redirect_url: decoded_response[:browserurl],
+            paynow_reference: decoded_response[:paynowreference],
+            status: decoded_response[:status]
+          }.compact
         )
+      )
     end
 
     private

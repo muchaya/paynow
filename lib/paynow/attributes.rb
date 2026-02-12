@@ -78,8 +78,8 @@ module Paynow
       end
     end       
 
-    Zimswitch = Data.define(:tokenize, :token, :additionalinfo, :method) do
-      def initialize(tokenize: false, token: nil, additionalinfo: nil, method: nil)
+    Zimswitch = Data.define(:tokenize, :token, :authemail, :additionalinfo, :method) do
+      def initialize(tokenize: false, token: nil, authemail: nil, additionalinfo: nil, method: nil)
         if !tokenize && token
           raise ArgumentError, "token must not be set when tokenize is false or not set"
         end
