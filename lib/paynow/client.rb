@@ -37,10 +37,10 @@ module Paynow
     private
 
     def uri
-      if raw_payment.has_key?(:method)
-        URI(Paynow::Config.initiate_express_transaction_url)
-      else
+      if redirect_to_paynow?
         URI(Paynow::Config.initiate_transaction_url)
+      else
+        URI(Paynow::Config.initiate_express_transaction_url)
       end
     end
 
@@ -60,6 +60,17 @@ module Paynow
       {'content-type': 'application/x-www-form-urlencoded'}
     end
 
+    def redirect_to_paynow?
+      return true unless raw_payment.key?(:method)
+    
+      redirect_methods = [
+        Paynow::Attributes::PAYMENT_METHODS[:vmc],
+        Paynow::Attributes::PAYMENT_METHODS[:zimswitch]
+      ]
+    
+      redirect_methods.include?(raw_payment[:method])
+    end
+
     def payment
       Paynow::Config.payment
     end
@@ -73,6 +84,3 @@ module Paynow
     end
   end
 end
-
- 
-
