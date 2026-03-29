@@ -1,3 +1,6 @@
+require "paynow/actions/redirect"
+require "paynow/actions/otp"
+require "paynow/actions/display"
 require 'paynow/attributes'
 require 'paynow/client'
 require 'paynow/configuration'

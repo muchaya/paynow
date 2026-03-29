@@ -108,7 +108,7 @@ module Paynow
         if !tokenize && token
           raise ArgumentError, "token must not be set when tokenize is false or not set"
         end
-      
+      ``
         if tokenize && token.nil?
           raise ArgumentError, "token is required when tokenize is true"
         end

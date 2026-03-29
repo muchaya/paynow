@@ -30,6 +30,13 @@ module Paynow
       end
     end
 
+    def next_action
+      return Actions::Redirect.new(paynow_redirect_url) if requires_redirect?
+      return Actions::Otp.new(self) if requires_otp?
+      return Actions::Display.new(self) if requires_display?
+      nil
+    end
+
     def success?
       status == 'Ok'
     end
