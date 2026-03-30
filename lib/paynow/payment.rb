@@ -23,18 +23,15 @@ module Paynow
       Paynow::Config.client.create_payment(*args)
     end
 
+    def self.check(poll_url:)
+      Paynow::Config.client.check_payment(poll_url)
+    end
+
     def initialize(attrs)
       attrs.each do |k,v|
         variable_name = "@#{k}"
         instance_variable_set(variable_name,v) unless v.nil?
       end
-    end
-
-    def next_action
-      return Actions::Redirect.new(paynow_redirect_url) if requires_redirect?
-      return Actions::Otp.new(self) if requires_otp?
-      return Actions::Display.new(self) if requires_display?
-      nil
     end
 
     def success?
@@ -45,5 +42,13 @@ module Paynow
       !success?
     end
 
+    private
+      def innbucks?
+        method == "innbucks"
+      end
+
+      def omari?
+        method == "omari"
+      end
   end
 end
