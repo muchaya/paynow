@@ -1,31 +1,30 @@
 module Paynow
   class Payment
     attr_reader :amount,
-                :additionalinfo,
-                :authemail, 
-                :billingline1, 
-                :billingline2, 
-                :billingcity,
-                :billingprovince, 
-                :billingcountry,
-                :cardnumber, 
-                :cardname, 
-                :cardcvv, 
-                :cardexpiry,   
+                :additional_info,
+                :auth_email,
+                :authorization_code,
+                :authorization_expires,
                 :id,
-                :merchanttrace,
                 :method, 
+                :otp_reference,
+                :remote_otp_url,
                 :phone,
+                :paynow_reference,
                 :poll_url,               
                 :reference,
                 :return_url,
                 :result_url,
                 :status,              
                 :token,
-                :tokenize,
+                :tokenize
                 
     def self.create(*args)
       Paynow::Config.client.create_payment(*args)
+    end
+
+    def self.check(poll_url:)
+      Paynow::Config.client.check_payment(poll_url)
     end
 
     def initialize(attrs)
@@ -43,7 +42,13 @@ module Paynow
       !success?
     end
 
+    private
+      def innbucks?
+        method == "innbucks"
+      end
+
+      def omari?
+        method == "omari"
+      end
   end
 end
-
-
